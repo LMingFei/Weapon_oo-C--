@@ -1,0 +1,11 @@
+E:\Weapen\Weapen_OO\Weapen_OO\bin\Debug\Weapen_OO.exe
+E:\Weapen\Weapen_OO\Weapen_OO\bin\Debug\Weapen_OO.pdb
+E:\Weapen\Weapen_OO\Weapen_OO\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Weapen\Weapen_OO\Weapen_OO\obj\x86\Debug\Weapen_OO.Form_Init.resources
+E:\Weapen\Weapen_OO\Weapen_OO\obj\x86\Debug\Weapen_OO.Properties.Resources.resources
+E:\Weapen\Weapen_OO\Weapen_OO\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\Weapen\Weapen_OO\Weapen_OO\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\Weapen\Weapen_OO\Weapen_OO\obj\x86\Debug\Weapen_OO.exe
+E:\Weapen\Weapen_OO\Weapen_OO\obj\x86\Debug\Weapen_OO.pdb
+F:\Weapon_OO\Weapen_OO\obj\x86\Debug\Weapen_OO.exe
+F:\Weapon_OO\Weapen_OO\obj\x86\Debug\Weapen_OO.pdb

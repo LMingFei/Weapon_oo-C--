@@ -10,6 +10,13 @@ namespace Weapen_OO
         private int attack;
         private String name;
         private int life;
+        private string identity;
+        public abstract Weapon get_weapon();
+        public string Identity
+        {
+            get { return identity; }
+            set { identity = value; }
+        }
         private int defence = 0;
         public int Defence
         {
@@ -31,6 +38,7 @@ namespace Weapen_OO
             get { return attack; }
             set { attack = value; }
         }
+        
 
         public String Name
         {
@@ -39,10 +47,5 @@ namespace Weapen_OO
         }
 
         public abstract string Heat(Person opponent);
-
-       /* public Boolean isDead() {
-            if (this.Life > 0) { return false; }
-            else return true;
-        }*/
     }
 }

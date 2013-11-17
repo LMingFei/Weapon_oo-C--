@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using Weapen_OO.Identity;
+using System.IO;
 
 namespace Weapen_OO
 {
@@ -95,6 +97,7 @@ namespace Weapen_OO
             InitUsers();
             InitPanel();
             InitLable();
+            InitTextBox();
             InitButton();
         }
 
@@ -103,27 +106,34 @@ namespace Weapen_OO
         {
             User.user = new Human (User.username);
             Thread.Sleep(50);
-            User.opponent = new Human ("Npc");
+            User.opponent = new Warrior ("Npc");
         }
         void InitLable()
         {
             Label lab_user = new Label();
             Size ss_lab = new Size(100, 100);
             lab_user.Size = ss_lab;
-            lab_user.Text = "姓名:" + User.user.Name + "\r\n攻击:" + User.user.Attack + "\r\n生命值:" + User.user.Life;
+            lab_user.Text = "姓名:" + User.user.Name + "\r\n职业:" + User.user.Identity + "\r\n攻击:" + User.user.Attack  + "\r\n生命值:" + User.user.Life;
             PanelArray.panel_array[1].Controls.Add(lab_user);
 
 
             Label lab_opp = new Label();
             lab_opp.Size = ss_lab;
-            lab_opp.Text = "姓名:" + User.opponent.Name + "\r\n攻击:" + User.opponent.Attack + "\r\n生命值:" + User.opponent.Life;
+            lab_opp.Text = "姓名:" + User.opponent.Name+"\r\n职业:"+User.opponent.Identity + "\r\n攻击:" + (User.opponent.Attack+User.opponent.get_weapon().Weapon_attack) +"\r\n武器:"+User.opponent.get_weapon().Weapon_name+ "\r\n生命值:" + User.opponent.Life;
             PanelArray.panel_array[3].Controls.Add(lab_opp);
 
+        }
 
-            Label lab_content = new Label();
+        void InitTextBox()
+        {
+            TextBox txt_content = new TextBox();
             Size ss_content = new Size(300, 200);
-            lab_content.Size = ss_content;
-            PanelArray.panel_array[0].Controls.Add(lab_content);
+            txt_content.Multiline = true;
+            txt_content.AcceptsReturn = true;
+            txt_content.ScrollBars = ScrollBars.Vertical;
+            txt_content.ReadOnly = true;
+            txt_content.Size = ss_content;
+            PanelArray.panel_array[0].Controls.Add(txt_content);
         }
         void InitButton() 
         {
@@ -179,7 +189,7 @@ namespace Weapen_OO
         {
             if (!User.isDead)
             {
-                PanelArray.panel_array[0].Controls[0].Text += User.opponent.Heat(User.user) + "\r\n";
+                PanelArray.panel_array[0].Controls[0].Text+= User.opponent.Heat(User.user) + "\r\n";
             }
             else
             {

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Defense\Armor.cs" />
     <Compile Include="Identity\Identities.cs" />
     <Compile Include="Form.cs">
       <SubType>Form</SubType>
@@ -58,6 +59,7 @@
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shield.cs" />
     <Compile Include="Weapon.cs" />
     <Compile Include="Arm\Medium_Weapon.cs" />
     <Compile Include="Weapon_Proto\Weapon_Proto.cs" />

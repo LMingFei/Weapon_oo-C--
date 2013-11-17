@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Weapen_OO.Arm;
+using Weapen_OO.Defense;
 namespace Weapen_OO.Identity
 {
     public class Warrior : Person
     {
         Weapon wp = new Medium_Weapon();
+        Armor armor = new Armor();
         public override Weapon get_weapon()
         {
             return wp;
@@ -19,7 +21,9 @@ namespace Weapen_OO.Identity
             this.Name = name;
             this.Attack = rm.Next(50, 80) + wp.Weapon_attack;
             this.Life = rm.Next(100, 300);
+            this.Defence = armor.Shiled_defense;
             string wp_name = wp.Weapon_name;
+            string armor_name = armor.Shiled_name;
         }
         public override string Heat(Person opponent)
         {

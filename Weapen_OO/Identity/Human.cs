@@ -25,8 +25,9 @@ namespace Weapen_OO.Identity
 
         public override string Heat(Person opponent)
         {
-            opponent.Life -= this.Attack;
-            string str = this.Identity+this.Name + "攻击了" + opponent.Name + "," + opponent.Name + "受到了" + this.Attack + "点伤害," + opponent.Name + "剩余生命:" + opponent.Life;
+            int heart = this.Attack - opponent.Defence;
+            opponent.Life -= heart;
+            string str = this.Identity+this.Name + "攻击了" + opponent.Name + "," + opponent.Name + "受到了" + heart + "点伤害," + opponent.Name + "剩余生命:" + opponent.Life;
             if (opponent.Life == 0) 
             {
                 str += "\r\n" + opponent.Name + "被打败了";

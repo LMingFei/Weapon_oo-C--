@@ -10,7 +10,7 @@ namespace Weapen_OO.Weapon_Proto
         public void stunt(Object sender,Person.WeaponProtoEventArgs e, Person opponent)
         {
             Person user = (Person)sender;
-            int heart = user.Attack*3 - opponent.Defence;
+            int heart = (user.Attack+user.get_weapon().Weapon_attack - opponent.Defence)*3;
             opponent.Life -= heart;
         }
     }

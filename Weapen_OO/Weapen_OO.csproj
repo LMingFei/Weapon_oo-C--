@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arm\Empty_Weapon.cs" />
     <Compile Include="Defense\Armor.cs" />
+    <Compile Include="Defense\Empty_Defence.cs" />
     <Compile Include="Identities.cs" />
     <Compile Include="Form.cs">
       <SubType>Form</SubType>
@@ -63,8 +65,12 @@
     <Compile Include="Weapon.cs" />
     <Compile Include="Arm\Medium_Weapon.cs" />
     <Compile Include="Weapon_Proto\Deadly.cs" />
+    <Compile Include="Weapon_Proto\Dizziness.cs" />
+    <Compile Include="Weapon_Proto\Flame.cs" />
+    <Compile Include="Weapon_Proto\Freeze.cs" />
     <Compile Include="Weapon_Proto\IWeaponProto.cs" />
     <Compile Include="weapon_proto.cs" />
+    <Compile Include="Weapon_Proto\Venom.cs" />
     <EmbeddedResource Include="Form.resx">
       <DependentUpon>Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -77,6 +83,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

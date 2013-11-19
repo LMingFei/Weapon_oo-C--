@@ -53,6 +53,7 @@ namespace Weapen_OO
 
         public abstract Weapon get_weapon();
 
+        public abstract Shield get_shield();
 
         public delegate void WeaponProtoEventHandler(Object sender, WeaponProtoEventArgs e,Person opponent);
         public event WeaponProtoEventHandler Stunt;
@@ -73,6 +74,7 @@ namespace Weapen_OO
                 Stunt(this, e,opponent);
             }
         }
+
         public void HeatStunt(Person opponent) 
         {
             WeaponProtoEventArgs e = new WeaponProtoEventArgs(opponent);
@@ -80,5 +82,7 @@ namespace Weapen_OO
         }
 
         public abstract void Heat(Person opponent);
+
+        protected Random rm = new Random();
     }
 }

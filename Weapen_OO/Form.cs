@@ -93,7 +93,7 @@ namespace Weapen_OO
         }
         void Init()
         {
-            this.ClientSize = new System.Drawing.Size(300, 300);
+            this.ClientSize = new System.Drawing.Size(300, 350);
             InitUsers();
             InitPanel();
             InitLable();
@@ -104,7 +104,7 @@ namespace Weapen_OO
 
         void InitUsers()
         {
-            User.user = new Human (User.username);
+            User.user = new Warrior (User.username);
             Thread.Sleep(50);
             User.opponent = new Warrior ("Npc");
             
@@ -114,15 +114,15 @@ namespace Weapen_OO
         void InitLable()
         {
             Label lab_user = new Label();
-            Size ss_lab = new Size(100, 100);
+            Size ss_lab = new Size(100, 150);
             lab_user.Size = ss_lab;
-            lab_user.Text = "姓名:" + User.user.Name + "\r\n职业:" + User.user.Identity + "\r\n攻击:" + User.user.Attack  + "\r\n生命值:" + User.user.Life;
+            lab_user.Text = "姓名:" + User.user.Name + "\r\n职业:" + User.user.Identity + "\r\n攻击:" + (User.user.Attack + User.user.get_weapon().Weapon_attack) + "\r\n武器:" + User.user.get_weapon().Weapon_name + "\r\n防御:" + User.user.Defence + "\r\n防具:" + User.user.get_shield().Shiled_name + "\r\n生命值:" + User.user.Life;
             PanelArray.panel_array[1].Controls.Add(lab_user);
 
 
             Label lab_opp = new Label();
             lab_opp.Size = ss_lab;
-            lab_opp.Text = "姓名:" + User.opponent.Name+"\r\n职业:"+User.opponent.Identity + "\r\n攻击:" + (User.opponent.Attack+User.opponent.get_weapon().Weapon_attack) +"\r\n武器:"+User.opponent.get_weapon().Weapon_name+ "\r\n生命值:" + User.opponent.Life;
+            lab_opp.Text = "姓名:" + User.opponent.Name+"\r\n职业:"+User.opponent.Identity + "\r\n攻击:" + (User.opponent.Attack+User.opponent.get_weapon().Weapon_attack) +"\r\n武器:"+User.opponent.get_weapon().Weapon_name+"\r\n防御:"+User.opponent.Defence+"\r\n防具:"+User.opponent.get_shield().Shiled_name+ "\r\n生命值:" + User.opponent.Life;
             PanelArray.panel_array[3].Controls.Add(lab_opp);
 
         }
@@ -183,13 +183,10 @@ namespace Weapen_OO
                 User.user.Heat(User.opponent);
                 string str = User.user.Identity + User.user.Name + "攻击了" + User.opponent.Identity + User.opponent.Name + "," + User.opponent.Name + "剩余" + User.opponent.Life + "点生命";
                 PanelArray.panel_array[0].Controls[0].Text+=str+ "\r\n";
-                if (User.opponent.Life == 0)
-                {
-                    PanelArray.panel_array[0].Controls[0].Text+=  User.opponent.Name + "被打败了";
-                }
-
             }
-            else {
+            else 
+            {
+                PanelArray.panel_array[0].Controls[0].Text += User.user.Name + "被打败了";
                 User.timer1.Stop();
                 User.timer2.Stop();
             }
@@ -202,13 +199,11 @@ namespace Weapen_OO
                 User.opponent.HeatStunt(User.user);
                 string str = User.opponent.Identity + User.opponent.Name + "攻击了" + User.user.Identity + User.user.Name + "," + User.user.Name + "剩余" + User.user.Life + "点生命";
                 PanelArray.panel_array[0].Controls[0].Text+=str+ "\r\n";
-                if (User.user.Life == 0)
-                {
-                    PanelArray.panel_array[0].Controls[0].Text +=  User.user.Name + "被打败了";
-                }
+
             }
             else
             {
+                PanelArray.panel_array[0].Controls[0].Text += User.opponent.Name + "被打败了";
                 User.timer1.Stop();
                 User.timer2.Stop();
             }

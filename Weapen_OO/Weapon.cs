@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Weapen_OO.Weapon_Proto;
 namespace Weapen_OO
 {
      public abstract class Weapon

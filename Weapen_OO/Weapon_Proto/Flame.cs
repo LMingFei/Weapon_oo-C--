@@ -7,5 +7,9 @@ namespace Weapen_OO.Weapon_Proto
 {
     public class Flame : IWeaponProto
     {
+        public void stunt(Person user, Person opponent)
+        {
+
+        }
     }
 }

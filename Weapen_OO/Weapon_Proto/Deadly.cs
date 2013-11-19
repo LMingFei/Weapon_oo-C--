@@ -5,10 +5,13 @@ using System.Text;
 
 namespace Weapen_OO.Weapon_Proto
 {
-    class Deadly:IWeaponProto
+    class Deadly : IWeaponProto
     {
-        public override void stunt()
+        public void stunt(Object sender,Person.WeaponProtoEventArgs e, Person opponent)
         {
+            Person user = (Person)sender;
+            int heart = user.Attack*3 - opponent.Defence;
+            opponent.Life -= heart;
         }
     }
 }

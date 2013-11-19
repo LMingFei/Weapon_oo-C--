@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Defense\Armor.cs" />
-    <Compile Include="Identity\Identities.cs" />
+    <Compile Include="Identities.cs" />
     <Compile Include="Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,7 +62,9 @@
     <Compile Include="Shield.cs" />
     <Compile Include="Weapon.cs" />
     <Compile Include="Arm\Medium_Weapon.cs" />
-    <Compile Include="Weapon_Proto\Weapon_Proto.cs" />
+    <Compile Include="Weapon_Proto\Deadly.cs" />
+    <Compile Include="Weapon_Proto\IWeaponProto.cs" />
+    <Compile Include="weapon_proto.cs" />
     <EmbeddedResource Include="Form.resx">
       <DependentUpon>Form.cs</DependentUpon>
     </EmbeddedResource>

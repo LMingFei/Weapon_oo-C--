@@ -7,5 +7,9 @@ namespace Weapen_OO.Weapon_Proto
 {
     class Freeze : IWeaponProto
     {
+        public void stunt(Person user, Person opponent)
+        {
+
+        }
     }
 }

@@ -18,7 +18,7 @@ namespace Weapen_OO.Weapon_Proto
 
         static Weapon_Proto()
         {
-            weapon_pro.Add(typeof(Warrior), 1);
+            weapon_pro.Add(typeof(Deadly), 1);
         }
     }
 }

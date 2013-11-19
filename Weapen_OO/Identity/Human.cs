@@ -23,16 +23,10 @@ namespace Weapen_OO.Identity
             return null;
         }
 
-        public override string Heat(Person opponent)
+        public override void Heat(Person opponent)
         {
             int heart = this.Attack - opponent.Defence;
             opponent.Life -= heart;
-            string str = this.Identity+this.Name + "攻击了" + opponent.Name + "," + opponent.Name + "受到了" + heart + "点伤害," + opponent.Name + "剩余生命:" + opponent.Life;
-            if (opponent.Life == 0) 
-            {
-                str += "\r\n" + opponent.Name + "被打败了";
-            }
-            return str;
         }
     }
 }

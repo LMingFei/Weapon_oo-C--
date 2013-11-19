@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using Weapen_OO.Identity;
-using System.IO;
+using Weapen_OO.Weapon_Proto;
 
 namespace Weapen_OO
 {
@@ -107,6 +107,9 @@ namespace Weapen_OO
             User.user = new Human (User.username);
             Thread.Sleep(50);
             User.opponent = new Warrior ("Npc");
+            
+
+            User.opponent.Stunt += new Deadly().stunt;
         }
         void InitLable()
         {
@@ -177,7 +180,14 @@ namespace Weapen_OO
         {
             if (!User.isDead)
             {
-                PanelArray.panel_array[0].Controls[0].Text += User.user.Heat(User.opponent) + "\r\n";
+                User.user.Heat(User.opponent);
+                string str = User.user.Identity + User.user.Name + "攻击了" + User.opponent.Identity + User.opponent.Name + "," + User.opponent.Name + "剩余" + User.opponent.Life + "点生命";
+                PanelArray.panel_array[0].Controls[0].Text+=str+ "\r\n";
+                if (User.opponent.Life == 0)
+                {
+                    PanelArray.panel_array[0].Controls[0].Text+=  User.opponent.Name + "被打败了";
+                }
+
             }
             else {
                 User.timer1.Stop();
@@ -189,7 +199,13 @@ namespace Weapen_OO
         {
             if (!User.isDead)
             {
-                PanelArray.panel_array[0].Controls[0].Text+= User.opponent.Heat(User.user) + "\r\n";
+                User.opponent.HeatStunt(User.user);
+                string str = User.opponent.Identity + User.opponent.Name + "攻击了" + User.user.Identity + User.user.Name + "," + User.user.Name + "剩余" + User.user.Life + "点生命";
+                PanelArray.panel_array[0].Controls[0].Text+=str+ "\r\n";
+                if (User.user.Life == 0)
+                {
+                    PanelArray.panel_array[0].Controls[0].Text +=  User.user.Name + "被打败了";
+                }
             }
             else
             {
@@ -221,5 +237,4 @@ namespace Weapen_OO
         public static System.Windows.Forms.Timer timer1 = new System.Windows.Forms.Timer();
         public static System.Windows.Forms.Timer timer2 = new System.Windows.Forms.Timer(); 
     }
-
 }

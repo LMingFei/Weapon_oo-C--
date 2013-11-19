@@ -7,6 +7,6 @@ namespace Weapen_OO.Weapon_Proto
 {
     public interface IWeaponProto
     {
-        public abstract void stunt();
+        void stunt(Object sender, Person.WeaponProtoEventArgs e, Person opponent);
     }
 }

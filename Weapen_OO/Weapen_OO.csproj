@@ -47,29 +47,36 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Arm\Empty_Weapon.cs" />
+    <Compile Include="Arm\Long_Weapon.cs" />
+    <Compile Include="Arm\Short_Weapon.cs" />
+    <Compile Include="BuffHandle.cs" />
     <Compile Include="Defense\Armor.cs" />
     <Compile Include="Defense\Empty_Defence.cs" />
-    <Compile Include="Identities.cs" />
     <Compile Include="Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form.Designer.cs">
       <DependentUpon>Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Identity\Assassin.cs" />
     <Compile Include="Identity\Human.cs" />
+    <Compile Include="Identity\Knight.cs" />
     <Compile Include="Identity\Warrior.cs" />
-    <Compile Include="Person.cs" />
+    <Compile Include="Identity\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Shield.cs" />
-    <Compile Include="Weapon.cs" />
+    <Compile Include="Defense\Shield.cs" />
+    <Compile Include="Arm\Weapon.cs" />
     <Compile Include="Arm\Medium_Weapon.cs" />
+    <Compile Include="Weapon_Proto\Battered.cs" />
+    <Compile Include="Weapon_Proto\Countered.cs" />
     <Compile Include="Weapon_Proto\Deadly.cs" />
     <Compile Include="Weapon_Proto\Dizziness.cs" />
+    <Compile Include="Weapon_Proto\Drived.cs" />
     <Compile Include="Weapon_Proto\Flame.cs" />
     <Compile Include="Weapon_Proto\Freeze.cs" />
-    <Compile Include="Weapon_Proto\IWeaponProto.cs" />
-    <Compile Include="weapon_proto.cs" />
+    <Compile Include="Weapon_Proto\WeaponProto.cs" />
+    <Compile Include="Weapon_Proto\NormalHeat.cs" />
     <Compile Include="Weapon_Proto\Venom.cs" />
     <EmbeddedResource Include="Form.resx">
       <DependentUpon>Form.cs</DependentUpon>

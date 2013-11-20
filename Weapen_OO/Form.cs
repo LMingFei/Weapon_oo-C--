@@ -104,13 +104,14 @@ namespace Weapen_OO
 
         void InitUsers()
         {
-            User.user = new Warrior (User.username);
-            Thread.Sleep(50);
-            User.opponent = new Warrior ("Npc");
-            
+            Person[] userlist = new PersonList().GetPersonArrayList(User.username);
+            User.user = userlist[random_num.rm.Next(0, userlist.Length)];
+            Thread.Sleep(200);
+            Person[] opponentlist = new PersonList().GetPersonArrayList("铭霏");
+            User.opponent = opponentlist[random_num.rm.Next(0, opponentlist.Length)];
 
-            User.opponent.Stunt += new Deadly().stunt;
         }
+
         void InitLable()
         {
             Label lab_user = new Label();
@@ -138,6 +139,7 @@ namespace Weapen_OO
             txt_content.Size = ss_content;
             PanelArray.panel_array[0].Controls.Add(txt_content);
         }
+
         void InitButton() 
         {
             Button btn_start = new Button();
@@ -166,29 +168,54 @@ namespace Weapen_OO
 
         void Game_Start(Object sender, EventArgs e)
         {
+            User.timer1.Tick -= (EventHandler)timer1_Tick;
+            User.timer2.Tick -= (EventHandler)timer2_Tick;
+            Button btn_return = (Button)sender;
+            btn_return.Text = "返回";
+            btn_return.Click += new EventHandler(Return_Back);
             User.isDead = false;
-            User.timer1.Interval = 2000;
+            User.timer1.Interval = 3000;
             User.timer1.Tick += new EventHandler(timer1_Tick);
-            User.timer2.Interval = 2000;
+            User.timer2.Interval = 3000;
             User.timer2.Tick += new EventHandler(timer2_Tick);
             User.timer1.Start();
-            Thread.Sleep(1000);
+            Thread.Sleep(1500);
             User.timer2.Start();
+
+        }
+
+        void Return_Back(Object sender, EventArgs e)
+        {
+            User.timer1.Stop();
+            User.timer2.Stop();
+            User.timer1.Enabled = false;
+            User.timer2.Enabled = false;
+            User.timer1.Tick -= (EventHandler)timer1_Tick;
+            User.timer2.Tick -= (EventHandler)timer2_Tick;
+            User.timer1.Dispose();
+            User.timer2.Dispose();
+            this.Hide();
+            Form_Init form_init = new Form_Init();
+            form_init.Show();
         }
 
         void timer1_Tick(object sender, EventArgs e) 
         {
             if (!User.isDead)
             {
-                User.user.Heat(User.opponent);
-                string str = User.user.Identity + User.user.Name + "攻击了" + User.opponent.Identity + User.opponent.Name + "," + User.opponent.Name + "剩余" + User.opponent.Life + "点生命";
-                PanelArray.panel_array[0].Controls[0].Text+=str+ "\r\n";
+                BuffHandle.IsBuff(User.user,User.opponent);
             }
             else 
             {
-                PanelArray.panel_array[0].Controls[0].Text += User.user.Name + "被打败了";
+                PanelArray.panel_array[0].Controls[0].Text = User.user.Name + "被打败了" + "\r\n\r\n" + PanelArray.panel_array[0].Controls[0].Text;
                 User.timer1.Stop();
                 User.timer2.Stop();
+                User.timer1.Enabled = false;
+                User.timer2.Enabled = false;
+                User.timer1.Tick -= (EventHandler)timer1_Tick;
+                User.timer2.Tick -= (EventHandler)timer2_Tick;
+                User.timer1.Dispose();
+                User.timer2.Dispose();
             }
         }
 
@@ -196,19 +223,23 @@ namespace Weapen_OO
         {
             if (!User.isDead)
             {
-                User.opponent.HeatStunt(User.user);
-                string str = User.opponent.Identity + User.opponent.Name + "攻击了" + User.user.Identity + User.user.Name + "," + User.user.Name + "剩余" + User.user.Life + "点生命";
-                PanelArray.panel_array[0].Controls[0].Text+=str+ "\r\n";
-
+                BuffHandle.IsBuff(User.opponent,User.user);
             }
             else
             {
-                PanelArray.panel_array[0].Controls[0].Text += User.opponent.Name + "被打败了";
+                PanelArray.panel_array[0].Controls[0].Text = User.opponent.Name + "被打败了" + "\r\n\r\n" + PanelArray.panel_array[0].Controls[0].Text;
                 User.timer1.Stop();
                 User.timer2.Stop();
+                User.timer1.Enabled = false;
+                User.timer2.Enabled = false;
+                User.timer1.Tick -= (EventHandler)timer1_Tick;
+                User.timer2.Tick -= (EventHandler)timer2_Tick;
+                User.timer1.Dispose();
+                User.timer2.Dispose();
             }
         }
     }
+
 
     public static class PanelArray
     {
@@ -231,5 +262,10 @@ namespace Weapen_OO
         public static bool isDead;
         public static System.Windows.Forms.Timer timer1 = new System.Windows.Forms.Timer();
         public static System.Windows.Forms.Timer timer2 = new System.Windows.Forms.Timer(); 
+    }
+
+    public static class random_num
+    {
+       public static Random rm = new Random();
     }
 }

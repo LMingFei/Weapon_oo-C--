@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using Weapen_OO.Arm;
 using Weapen_OO.Defense;
-using Weapen_OO.Weapon_Proto;
-using System.Collections;
+
 namespace Weapen_OO.Identity
 {
-    public class Warrior : Person
+    public class Assassin:Person
     {
-        Medium_Weapon[] wp_list = new Medium_WeaponList().GetMedium_WeaponList();
+        Short_Weapon[] wp_list = new Short_WeaponList().GetShort_WeaponList();
         Weapon wp;
         Armor[] defence_list = new ArmorList().GetArmorList();
         Shield sd;
@@ -22,16 +21,20 @@ namespace Weapen_OO.Identity
         {
             return sd;
         }
-        public Warrior(String name)
+        public Assassin(String name)
         {
             wp = wp_list[rm.Next(0, wp_list.Length)];
             sd = defence_list[rm.Next(0, defence_list.Length)];
-            this.Identity = "战士";
+            this.Identity = "刺客";
             this.Name = name;
-            this.Attack = rm.Next(50, 80) + wp.Weapon_attack;
-            this.Life = rm.Next(500, 600);
-            this.Defence = sd.Shiled_defense+8;
-
+            this.Attack = rm.Next(60, 100) + wp.Weapon_attack;
+            this.Life = rm.Next(350, 500);
+            this.Defence = sd.Shiled_defense+5;
+        }
+        public override void Heat(Person opponent)
+        {
+            string heart = (this.Attack+wp.Weapon_attack - opponent.Defence).ToString();
+            opponent.Life -= Convert.ToInt32(heart);
         }
     }
 }

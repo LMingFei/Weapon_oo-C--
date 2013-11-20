@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Weapen_OO.Arm;
 using Weapen_OO.Defense;
-using Weapen_OO.Weapon_Proto;
-using System.Collections;
+using Weapen_OO.Arm;
 namespace Weapen_OO.Identity
 {
-    public class Warrior : Person
+    public class Knight:Person
     {
-        Medium_Weapon[] wp_list = new Medium_WeaponList().GetMedium_WeaponList();
+        Long_Weapon[] wp_list = new Long_WeaponList().GetShort_WeaponList();
         Weapon wp;
         Armor[] defence_list = new ArmorList().GetArmorList();
         Shield sd;
@@ -22,16 +20,15 @@ namespace Weapen_OO.Identity
         {
             return sd;
         }
-        public Warrior(String name)
+        public Knight(String name)
         {
             wp = wp_list[rm.Next(0, wp_list.Length)];
             sd = defence_list[rm.Next(0, defence_list.Length)];
-            this.Identity = "战士";
+            this.Identity = "骑士";
             this.Name = name;
-            this.Attack = rm.Next(50, 80) + wp.Weapon_attack;
-            this.Life = rm.Next(500, 600);
-            this.Defence = sd.Shiled_defense+8;
-
+            this.Attack = rm.Next(50,70 ) + wp.Weapon_attack;
+            this.Life = rm.Next(400, 500);
+            this.Defence = sd.Shiled_defense+6;
         }
     }
 }

@@ -27,10 +27,19 @@ namespace Weapen_OO.Arm
 
     public class KnightSword : Medium_Weapon
     {
+
         public KnightSword()
         {
-            this.Weapon_name = "骑士剑";
+            this.Weapon_name = "骑士剑(寒冰)";
             this.Weapon_attack = 7;
+            protolist = new WeaponProto[7];
+            protolist[0] = new NormalHeat();
+            protolist[1] = new NormalHeat();
+            protolist[2] = new NormalHeat();
+            protolist[3] = new NormalHeat();
+            protolist[4] = new NormalHeat();
+            protolist[5] = new Freeze();
+            protolist[6] = new Countered();
         }
     }
 
@@ -38,8 +47,15 @@ namespace Weapen_OO.Arm
     {
         public SilverSword()
         {
-            this.Weapon_name = "银质长剑";
+            this.Weapon_name = "毒剑";
             this.Weapon_attack = 6;
+            protolist = new WeaponProto[6];
+            protolist[0] = new NormalHeat();
+            protolist[1] = new NormalHeat();
+            protolist[2] = new NormalHeat();
+            protolist[3] = new NormalHeat();
+            protolist[4] = new Venom();
+            protolist[5] = new Countered();
         }
     }
 
@@ -49,6 +65,15 @@ namespace Weapen_OO.Arm
         {
             this.Weapon_attack = 14;
             this.Weapon_name = "逐风者的祝福之剑";
+            protolist = new WeaponProto[8];
+            protolist[0] = new NormalHeat();
+            protolist[1] = new NormalHeat();
+            protolist[2] = new NormalHeat();
+            protolist[3] = new NormalHeat();
+            protolist[4] = new NormalHeat();
+            protolist[5] = new Flame();
+            protolist[6] = new Freeze();
+            protolist[7] = new Countered();
         }
     }
 
@@ -58,6 +83,15 @@ namespace Weapen_OO.Arm
         {
             this.Weapon_name = "奥金斧";
             this.Weapon_attack = 18;
+            protolist = new WeaponProto[8];
+            protolist[0] = new NormalHeat();
+            protolist[1] = new NormalHeat();
+            protolist[2] = new NormalHeat();
+            protolist[3] = new NormalHeat();
+            protolist[4] = new NormalHeat();
+            protolist[5] = new Dizziness();
+            protolist[6] = new Deadly();
+            protolist[7] = new Countered();
         }
 
     }

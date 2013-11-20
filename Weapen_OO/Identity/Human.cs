@@ -15,8 +15,8 @@ namespace Weapen_OO.Identity
         {
             this.Identity = "普通青年";
             Random rm = new Random();
-            this.Attack = rm.Next(50, 80);
-            this.Life = rm.Next(100, 300);
+            this.Attack = rm.Next(40, 120);
+            this.Life = rm.Next(300, 700);
             this.Name = name;
             this.Defence = defence.Shiled_defense;
         }
@@ -31,10 +31,5 @@ namespace Weapen_OO.Identity
             return defence;
         }
 
-        public override void Heat(Person opponent)
-        {
-            int heart = this.Attack - opponent.Defence;
-            opponent.Life -= heart;
-        }
     }
 }

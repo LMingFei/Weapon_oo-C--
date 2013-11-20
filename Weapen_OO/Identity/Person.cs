@@ -9,7 +9,7 @@ namespace Weapen_OO
 {
     public class PersonList
     {
-        public static Person[] PersonArrayList = new Person[6];
+        public static Person[] PersonArrayList = new Person[5];
         public Person[] GetPersonArrayList(string name)
         {
             PersonArrayList[0] = new Human(name);
@@ -17,7 +17,6 @@ namespace Weapen_OO
             PersonArrayList[2] = new Assassin(name);
             PersonArrayList[3] = new Knight(name);
             PersonArrayList[4] = new Human(name);
-            PersonArrayList[5] = new Human(name);
             return PersonArrayList;
         }
     }

@@ -78,6 +78,9 @@ namespace Weapen_OO
             User.username = PanelArray.panel_array[1].Controls[0].Text;
             Form_Game form_game = new Form_Game();
             this.Hide();
+            form_game.ResumeLayout(false);
+            form_game.MaximizeBox = false;
+            form_game.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             form_game.Show();
         }
 
@@ -106,7 +109,7 @@ namespace Weapen_OO
         {
             Person[] userlist = new PersonList().GetPersonArrayList(User.username);
             User.user = userlist[random_num.rm.Next(0, userlist.Length)];
-            Thread.Sleep(200);
+            Thread.Sleep(400);
             Person[] opponentlist = new PersonList().GetPersonArrayList("铭霏");
             User.opponent = opponentlist[random_num.rm.Next(0, opponentlist.Length)];
 
